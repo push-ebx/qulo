@@ -1,0 +1,25 @@
+.button {
+  min-width: 8rem;
+  height: 2rem;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
+  font-family: Muller;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .1s ease-out;
+
+  &:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+    border: none;
+  }
+}

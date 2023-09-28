@@ -1,0 +1,14 @@
+.image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -9999;
+}
+
+.blur {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(7px);
+  z-index: -5555;
+}
