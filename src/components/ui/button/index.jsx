@@ -1,10 +1,13 @@
-import React from 'react';
 import styles from './styles.module.scss'
 import {Link} from "react-router-dom";
 
-const Button = ({children, onClick, to, propClass}) => {
+const Button = ({children, onClick, to, propClass, active}) => {
   return (
-    <Link onClick={onClick} className={`${styles.button} ${propClass}`} to={to}>
+    <Link
+      onClick={onClick}
+      className={`${styles.button} ${propClass} ${active ? styles.active : ''}`}
+      to={to}
+    >
       {children}
     </Link>
   );

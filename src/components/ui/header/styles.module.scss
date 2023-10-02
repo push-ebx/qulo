@@ -1,0 +1,37 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(35px);
+  padding: 0 1.5rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 2.25rem;
+}
+
+.logos {
+  display: flex;
+  column-gap: 0.5rem;
+  height: 100%;
+
+  img {
+    height: 1.625rem;
+    width: auto;
+  }
+}
+
+.divider {
+  display: inline-block;
+  background-color: #FFFFFF;
+  width: 1px;
+  height: 1.625rem;
+}
+
+.applicationButton {
+  margin: 1.13rem 0 0.87rem;
+}

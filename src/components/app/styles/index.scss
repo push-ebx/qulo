@@ -1,7 +1,21 @@
 @import './normalize.scss';
 @import './vars.scss';
 @import '../fonts/Muller/index.css';
+@import '../fonts/PT-Root-UI/index.css';
 
 html {
-  //background: #4A4A4A;
+  font-size: 1.111vw;
+}
+
+h1 {
+
+}
+
+h3 {
+  color: #FFFFFF;
+  font-family: Muller;
+  font-size: 1.375rem;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
 }

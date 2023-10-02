@@ -1,17 +1,104 @@
-import React from 'react';
 import styles from './styles.module.scss'
-import {Button} from "@/components/ui/button";
-import {ApplicationButton} from "@/components/ui/application-button";
+
+import {Header} from "@/components/ui/header";
+import {CarouselCard} from "@/components/ui/carousel-card";
 import {BackgroundImage} from "@/components/ui/background-image";
+
+import 'swiper/css';
+import './styles.css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, HashNavigation } from 'swiper/modules';
+
+import background from '../../../assets/images/background_news.png'
+import image1 from "@/assets/images/image1.png"
+import image2 from "@/assets/images/image2.png"
+
+
+const news = [
+  {
+    news_headline: "Анонсирована дата\nзапуска игры",
+    text_news: "Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года. Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года.",
+    date_news: "12.07.23",
+    image_src: image1
+  },
+  {
+    news_headline: "Анонсирована дата\nзапуска",
+    text_news: "Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года. Разработчики опубликовали новость о запуске игры в режиме бета-тест.",
+    date_news: "13.07.23",
+    image_src: image2
+  },
+  {
+    news_headline: "Анонсирована дата\nзапуска игры",
+    text_news: "Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года. Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года.",
+    date_news: "15.08.23",
+    image_src: image1
+  },
+  {
+    news_headline: "Анонсирована дата\nзапуска",
+    text_news: "Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года. Разработчики опубликовали новость о запуске игры в режиме бета-тест.",
+    date_news: "20.07.23",
+    image_src: image2
+  },
+  {
+    news_headline: "Анонсирована дата\nзапуска игры",
+    text_news: "Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года. Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года.",
+    date_news: "24.07.23",
+    image_src: image1
+  },
+  {
+    news_headline: "Анонсирована дата\nзапуска",
+    text_news: "Разработчики опубликовали новость о запуске игры в режиме бета-тест. Официальная дата релиза будет обозначена по результатам бета-тестирования, на которое приглашаются все желающие.\n\nПоиграть в первую версию игры можно будет уже 25 декабря 2023 года. Разработчики опубликовали новость о запуске игры в режиме бета-тест.",
+    date_news: "29.07.23",
+    image_src: image2
+  }
+]
 
 const News = () => {
   return (
     <>
-      <BackgroundImage src={import('./images/background.png')} blur/>
+      <BackgroundImage src={background} blur/>
 
       <div className={styles.news}>
-        <ApplicationButton>Заявка на участие</ApplicationButton>
-        <Button onClick={() => console.log(123)} to={'/about'}>Новости</Button>
+        <Header/>
+        <main>
+          <Swiper
+            slidesPerView={'auto'}
+            spaceBetween={30}
+            hashNavigation={{
+              watchState: true,
+            }}
+            modules={[Navigation, HashNavigation]}
+            navigation={true}
+          >
+            {
+              news.map((item, i) => (
+                <SwiperSlide data-hash={`slide${i}`} key={i}>
+                  <CarouselCard
+                    src={item.image_src}
+                    news_headline={item.news_headline}
+                    text_news={item.text_news}
+                    date_news={item.date_news}
+                  />
+                </SwiperSlide>
+              ))
+            }
+          </Swiper>
+        </main>
+
+        <div className={styles.footer_menu}>
+          {
+            news.map((item, i) => (
+              <a
+                href={`#slide${i}`}
+                key={i}
+              >
+                {item.date_news}
+              </a>
+            ))
+          }
+        </div>
       </div>
     </>
   );
