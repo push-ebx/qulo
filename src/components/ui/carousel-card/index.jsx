@@ -4,8 +4,11 @@ import {HorizontalDivider} from "@/components/ui/horizontal-divider";
 const CarouselCard = ({propClassName, src, news_headline, text_news, date_news}) => {
   return (
     <div className={`${styles.card} ${propClassName}`}>
-      <img className={styles.news_image} src={src} alt={src} />
 
+      <div className={styles.image_wrapper}>
+        <div className={styles.blackout}></div>
+        <img className={styles.news_image} src={src} alt={src} />
+      </div>
       <div className={styles.content}>
         <div className={styles.news_headline}>
           <h3 className={styles.news_headline__text}>{news_headline}</h3>

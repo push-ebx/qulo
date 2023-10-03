@@ -1,6 +1,5 @@
 .card {
-  //width: 36.5rem;
-  //max-height: 75vh;
+  position: relative;
   width: 100%;
   height: 100%;
   text-align: left;
@@ -10,14 +9,27 @@
   background: rgba(0, 0, 0, 0.30);
   backdrop-filter: blur(35px);
   font-family: Muller;
+  user-select: none;
 
-  .news_image {
+  .image_wrapper {
+    position: relative;
     width: 33.5rem;
     max-height: 36vh;
-    object-fit: cover;
 
-    border-radius: 1rem 1rem 1rem 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), lightgray 50% / cover no-repeat;
+    .blackout {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 1rem 1rem 1rem 0;
+    }
+
+    .news_image {
+      width: 100%;
+      max-height: 36vh;
+      object-fit: cover;
+      border-radius: 1rem 1rem 1rem 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), lightgray 50% / cover no-repeat;
+    }
   }
 
   .content {
@@ -34,20 +46,20 @@
       display: flex;
       align-items: start;
       justify-content: space-between;
-      font-weight: 700;
-    }
+      font-weight: 500;
 
-    .news_headline__text {
-      font-size: 1.375rem;
-      line-height: 1.375rem;
-      white-space: pre-line;
-    }
+      .news_headline__text {
+        font-size: 1.375rem;
+        line-height: 1.375rem;
+        white-space: pre-line;
+      }
 
-    .news_headline__date {
-      color: #FFFFFF;
-      font-size: 1rem;
-      line-height: 1rem;
-      font-family: 'PTRootUIWebBold';
+      .news_headline__date {
+        color: #FFFFFF;
+        font-size: 1rem;
+        line-height: 1rem;
+        font-family: 'PTRootUIWebBold';
+      }
     }
 
     .text_news {
